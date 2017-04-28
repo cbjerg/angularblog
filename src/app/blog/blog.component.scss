@@ -1,0 +1,177 @@
+@import "../../_settings";
+
+.blog{
+
+    padding: 20px;
+
+    .articles{
+       // margin-left: 210px;
+        h3{
+            font-style: italic;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        h4{
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+
+        p {
+            font-size: 14px;
+        }
+        p.commentparagraph{
+            margin-top: 2px;
+        }
+        ul{
+            li{
+                font-size: 14px;
+                color: $greycol;
+                display: inline-block;
+                *display: inline;
+                zoom: 1;
+                margin-right: 10px;
+            }
+        }
+
+    }
+
+    .score{
+        width: 200px;
+        float: left;
+        margin-top: 62px;
+        text-align: right;
+        span{
+            font-size: 14px;
+            padding: 5px;
+        }
+        i{
+
+        }
+    }
+}
+.odd{
+    background-color: $purplecol;
+    color: white;
+
+    i{
+        border: 1px solid $whitecol;
+                    font-size: 18px;
+            padding: 3px 8px 3px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+    }
+   span.commentbtn{
+        border: 1px solid $whitecol;
+        padding: 5px 10px 5px 10px;       
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    span.commentaction{
+        float: right;
+        span{
+            margin-right: 5px;
+            border: 1px solid $whitecol;
+            padding: 5px 10px 5px 10px;  
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    }
+}
+
+.even{
+    background-color: $whitecol;
+    span.commentbtn{
+        border: 1px solid $blackcol;
+        padding: 5px 10px 5px 10px;          
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    i{
+        border: 1px solid $blackcol;
+                    font-size: 18px;
+            padding: 3px 8px 3px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+    }
+    span.commentaction{
+            float: right;
+            span{
+                margin-right: 5px;
+                padding: 5px 10px 5px 10px;  
+                border: 1px solid $blackcol;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+}
+
+hr.commentline{
+        margin-top: 20px;
+}
+
+.input-full-width {
+  width: 100%;
+}
+
+.commenttextarea{
+    height: 300px;
+}
+
+.closemodal{
+    position: absolute;
+    width: 34px;
+    right: 60px;
+    top: 55px;
+    cursor: pointer;
+}
+
+p.commentcharacters{
+    font-size: 14px;
+    margin-top: 0;
+}
+p.overlimit{
+    color: $redcol;
+}
+p.underlimit{
+    color: $blackcol;
+}
+
+div.group.overlimit{
+    color: $redcol;
+}
+
+hr.modalline{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid $redcol;
+    margin: 1em 0;
+    padding: 0; 
+    margin-top: 0;
+}
+
+p.commenthead{
+    margin-bottom: 5px;
+}
+
+div.savecommentdiv{
+    color: white;
+    background-color: $confirmbtn;
+    width: 95px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer
+}
+div.savecommentdiv:hover {
+    background-color: $confirmbtn_hover;
+}
+
+div.savecommentdiv.inactive {
+    background-color: $confirmbtn_inactive;
+    cursor: not-allowed;
+}

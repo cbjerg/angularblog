@@ -1,3 +1,22 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container mhrblog">
+  <div class="logo left" *ngIf="!istabletorphone">
+    <img src="../assets/logo.png" alt="Logo">
+  </div>
+  <div class="companyname" [ngStyle]="rightstyle">
+    <p>WEB</p>
+    <p>DESIGN</p>
+    <p>BLOG</p>
+    <ul *ngIf="!istabletorphone">
+      <li><a routerLink="/blog">HOME</a></li>
+      <li><a routerLink="/blog">ABOUT</a></li>
+      <li><a routerLink="/blog">PORTFOLIO</a></li>
+      <li><a routerLink="/blog">BLOG</a></li>
+    </ul>
+  </div>
+  <div class="clear"></div>
+</div>
+   <router-outlet></router-outlet>
+   <footer class="sitefooter">
+     <span [ngStyle]="rightstyle2">Copyright 2017</span>
+   </footer>
+ 

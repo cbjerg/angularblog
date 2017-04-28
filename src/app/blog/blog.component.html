@@ -1,0 +1,57 @@
+<div class="blog" *ngFor="let item of blog | slice:0:5; let idx = index; let odd=odd; let even=even;" [ngClass]="{ odd: odd, even: even }">
+  <div class="score left" *ngIf="!istabletorphone">
+    <i class="fa fa-thumbs-o-up" aria-hidden="true" (click)="voteup(item.id)"></i>
+    <span>{{item.score}}</span>
+    <i class="fa fa-thumbs-o-down" aria-hidden="true" (click)="votedown(item.id)"></i>
+  </div>
+  <div class="articles"  [ngStyle]="rightstyle">
+    <h3>{{item.title}}</h3>
+    <p [innerHTML]='item.text'></p>
+    <ul>
+      <li *ngFor="let tag of item.tags">#{{tag.title}}</li>
+    </ul>
+    <p>
+      <span (click)="comment(item.id)" class="commentbtn">COMMENT</span>
+      <span *ngIf="istabletorphone">
+         <i class="fa fa-thumbs-o-up" aria-hidden="true" (click)="voteup(item.id)"></i>
+          <span>{{item.score}}</span>
+        <i class="fa fa-thumbs-o-down" aria-hidden="true" (click)="votedown(item.id)"></i>
+      </span>
+    </p>
+    <div *ngIf="item.comments">
+      <div *ngFor="let comment of item.comments; let comidx = index; let last = last">
+        <h4>{{comment.name}}</h4>
+        <p [innerHTML]='comment.text' class="commentparagraph"></p>
+        <p>
+          <span class="commentaction">
+            <span (click)="edit(comment.id, item.id)" >EDIT</span><span (click)="delete(comment.id, item.id)">DELETE</span>
+          </span>
+        </p>
+        <br>
+        <hr *ngIf="!last" class="commentline">
+      </div>
+    </div>
+  </div>
+    <div class="clear"></div>
+</div>
+
+<modal id="comment-modal">
+    <div class="modal">
+        <div class="modal-body">
+              <div class="group" [ngClass]="overlimit ?'overlimit':'underlimit'" >  
+               <img src="../assets/close-x.png" alt="Logo" class="closemodal" (click)="closeModal('comment-modal');">    
+                <p class="commenthead">Add comment</p>
+                <hr class="modalline">
+              </div>
+               <md-input-container class="input-full-width">
+                <input mdInput placeholder="Your name" [(ngModel)]="commentauthor" required>
+              </md-input-container>
+               <md-input-container class="input-full-width " [ngClass]="overlimit ?'overlimit':'underlimit'">
+                  <textarea mdInput placeholder="Your comment" class="commenttextarea" [(ngModel)]="commenttext" (keyup)="changed()" required></textarea>
+                </md-input-container>
+                <p class="commentcharacters" [ngClass]="overlimit ?'overlimit':'underlimit'">{{charactersused}} characters out of 500</p>
+            <div (click)="saveComment();" class="savecommentdiv" [ngClass]="overlimit ?'inactive':''">SAVE</div>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+</modal>
